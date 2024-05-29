@@ -17,4 +17,9 @@ ngOnInit(){
   this.preferiti = this.productSrv.getPreferiti();
 }
 
+
+deletePref(product: iProduct): void {
+  this.productSrv.removeFromPref(product);
+  this.preferiti = this.productSrv.getPreferiti(); // Aggiorna la lista dei prodotti nel carrello
+}
 }

@@ -17,9 +17,9 @@ export class CarrelloComponent {
     this.cart = this.productSvc.getCart();
   }
 
-  deleteCart(): void{
-    this.productSvc.clearCart();
-    this.cart = [];
+  deleteCart(product: iProduct): void {
+    this.productSvc.removeFromCart(product);
+    this.cart = this.productSvc.getCart(); // Aggiorna la lista dei prodotti nel carrello
   }
 }
 

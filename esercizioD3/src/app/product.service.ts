@@ -30,8 +30,11 @@ constructor(private http: HttpClient) { }
     return this.preferiti;
   }
 
-  clearPreferiti(): void {
-    this.preferiti = [];
+  removeFromPref(product: iProduct): void {
+    const i = this.preferiti.findIndex(p => p.id === product.id);
+    if (i !== -1) {
+      this.preferiti.splice(i, 1);
+    }
   }
 
   addToCart(product: iProduct): void {
@@ -42,17 +45,10 @@ constructor(private http: HttpClient) { }
     return this.cart;
   }
 
-  clearCart(): void {
-    this.cart = [];
+  removeFromCart(product: iProduct): void {
+    const i = this.cart.findIndex(p => p.id === product.id);
+    if (i !== -1) {
+      this.cart.splice(i, 1);
+    }
   }
-
-  clearPrefer(): void {
-    this.preferiti = [];
-  }
-
-
-
-
-
-
 }
